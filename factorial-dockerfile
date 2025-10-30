@@ -1,0 +1,21 @@
+factorial.java
+
+public class fact {
+    public static void main(String[] args) {
+        int number = 5; 
+        int result = 1;
+        for (int i = 1; i <= number; i++) {
+            result *= i; 
+        }
+
+        System.out.println("Factorial of " + number + " is: " + result);
+    }
+}
+
+Dockerfile
+
+FROM openjdk:11-jdk
+WORKDIR /app
+COPY fact.java .
+RUN javac fact.java
+CMD ["java", "fact"]
