@@ -1,0 +1,25 @@
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+import time
+
+driver = webdriver.Chrome()
+driver.get("https://www.w3schools.com/html/html_forms.asp")
+driver.maximize_window()
+
+fname = driver.find_element(By.ID, "fname")
+lname = driver.find_element(By.ID, "lname")
+
+fname.clear()
+fname.send_keys("Hrugveda")
+
+lname.clear()
+lname.send_keys("Mane")
+
+driver.find_element(By.XPATH, "//input[@type='submit']").click()
+
+time.sleep(5)
+print("Form submitted successfully!")
+print("Redirected URL:", driver.current_url)
+
+driver.quit()
