@@ -1,0 +1,21 @@
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+import time
+
+driver = webdriver.Chrome()
+driver.get("https://www.youtube.com")
+driver.maximize_window()
+print("Opened YouTube successfully.")
+time.sleep(3)
+
+try:
+    search_box = driver.find_element(By.NAME, "search_query")
+    search_box.send_keys("DevOps tutorials")
+    search_box.send_keys(Keys.RETURN)
+    print("Search submitted!")
+    time.sleep(10)
+except Exception as e:
+    print(f"An error occurred: {e}")
+finally:
+    driver.quit()
