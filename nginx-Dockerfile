@@ -1,0 +1,23 @@
+mkdir myapp
+
+cd myapp
+
+nano index.html
+
+write some code
+
+nano Dockerfile
+  FROM nginx
+  COPY index.html /usr/share/nginx/html/
+
+
+sudo systemctl status docker
+
+sudo systemctl start docker
+
+docker build -t myapp .
+
+docker run -d -p 8083:80 myapp
+
+Browser -> localhost:8083 -> html page renders
+  
