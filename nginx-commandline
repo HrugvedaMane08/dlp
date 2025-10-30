@@ -1,0 +1,22 @@
+sudo su
+
+docker pull nginx:latest
+
+docker run -it -p 5555:80 --name server_Hrugveda nginx:latest bash
+
+cd /usr/share/nginx/html/
+
+mv index.html index.html_backup
+
+nano index.html
+
+
+write some code
+
+
+service nginx start
+
+if service not found
+nginx -g "daemon off;"
+
+browser -> localhost:5555 -> html page render
